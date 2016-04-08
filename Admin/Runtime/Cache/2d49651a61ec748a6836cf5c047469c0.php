@@ -1,0 +1,16 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset={:C('DEFAULT_CHARSET')}" /><title>网站后台管理 Powered by loowei.com</title><script type="text/javascript">if(self==top){window.top.location.href = '<?php echo U("Login/index");?>';}</script><link rel="stylesheet" type="text/css" href="<?php echo ($TMPL_PUBLIC); ?>Css/style.css" /><script type="text/javascript" src="./Public/Js/jquery.js"></script><script type="text/javascript" src="./Public/Js/jquery.artDialog.js?skin=aero"></script><script type="text/javascript" src="./Public/Js/iframeTools.js"></script><script type="text/javascript" src="./Public/Js/jquery.form.js"></script><script type="text/javascript" src="./Public/Js/jquery.validate.js"></script><script type="text/javascript" src="./Public/Js/date/WdatePicker.js"></script><script type="text/javascript" src="./Public/Js/jquery.colorpicker.js"></script><script type="text/javascript">	function confirm_delete(url){
+		var dialog = $.dialog({
+			title:'消息提醒：',
+			icon:'question',
+			content:'您确定要删除吗？删除后不可恢复，请谨慎操作。',
+			lock:true,
+			fixed:true,
+			opacity:'0.5',
+			ok:function (){
+				location.href = url;
+				return false;
+			},
+			cancel:true
+		});
+	}
+</script></head><body width="100%"><div class="mainbox"><form id="myform" method='post' name="login" action="<?php echo U('User/amend');?>"><input type="hidden" name="uid" value="<?php echo ($user["uid"]); ?>"/><table cellpadding=0 cellspacing=0 class="table_form" width="100%"><tr><td width="15%">帐号:</td><td><input type="text" class="input-text" name="nickname" value="<?php echo ($user["nickname"]); ?>" size="30" validate="minlength:2,maxlength:50,required:true"/></td></tr><tr><td width="15%">密码:</td><td><input type="text" class="input-text" name="pwd" size="30"/><font color="red">不修改请留空！</font></td></tr><tr><td width="15%">邮箱:</td><td><input type="text" class="input-text" name="email" value="<?php echo ($user["email"]); ?>" size="30" validate="maxlength:40,required:true,email:true"/></td></tr><tr><td width="15%">清空头像:</td><td width="85%" id="box_status"><label style="float:left;width:75px" class="checkbox_status"><input type="radio" class="input_radio" name="clear_avatar" checked="checked" value="0" /> 不清空</label><label style="float:left;width:75px" class="checkbox_status"><input type="radio" class="input_radio" name="clear_avatar" value="1" /> 清空</label></td></tr><tr><td width="15%">状态:</td><td width="85%" id="box_status"><label style="float:left;width:75px" class="checkbox_status"><input type="radio" class="input_radio" name="status" <?php if($user['status'] == 1){ ?>checked="checked"<?php } ?> value="1" /> 开启</label><label style="float:left;width:75px" class="checkbox_status"><input type="radio" class="input_radio" name="status" <?php if($user['status'] == 0){ ?>checked="checked"<?php } ?> value="0" /> 关闭</label></td></tr></table><div class="btn"><input TYPE="submit" name="dosubmit" value="提交" class="button" /><input type="reset" value="取消" class="button" /></div></form></body></html>

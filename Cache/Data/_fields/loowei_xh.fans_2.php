@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'follow_uid', 1 => 'fans_uid', '_autoinc' => false, '_type' => array ( 'follow_uid' => 'mediumint(9)', 'fans_uid' => 'mediumint(9)', ), );?>
